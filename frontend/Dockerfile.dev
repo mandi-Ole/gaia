@@ -1,0 +1,15 @@
+# Frontend Entwicklungs-Dockerfile
+FROM node:14-alpine
+
+# Arbeitsverzeichnis festlegen
+WORKDIR /app
+
+# Abhängigkeiten kopieren und installieren
+COPY package.json ./
+RUN npm install
+
+# Port freigeben
+EXPOSE 8080
+
+# Startbefehl mit Hot Reload
+CMD ["npm", "run", "serve"]
