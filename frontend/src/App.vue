@@ -5,12 +5,23 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'App',
   data() {
     return {
-      message: 'Hallo Welt!1'
+      message: ''
     };
+  },
+  created() {
+    axios.get('http://localhost:8000/api')
+      .then(response => {
+        this.message = response.data.Hello;
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Daten:', error);
+      });
   }
 };
 </script>
@@ -18,5 +29,3 @@ export default {
 <style>
 /* Optionales CSS */
 </style>
-
-  
