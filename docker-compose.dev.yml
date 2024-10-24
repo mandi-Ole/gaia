@@ -37,6 +37,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - db_data_dev:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Host-Port : Container-Port
 
 volumes:
   db_data_dev:
